@@ -43,6 +43,18 @@ def match_face(embedding, known_faces, tolerance=0.5):
             return name  # Match found
     return "Unknown"  # No match found
 
+def recognize_face(frame, known_faces, tolerance=0.5):
+    embedding, _ = get_face_embedding(frame)
+    if embedding is not None:
+        return match_face(embedding, known_faces, tolerance)
+    return None
+
+# def load_known_faces():
+#     if os.path.exists(KNOWN_FACES_FILE):
+#         with open(KNOWN_FACES_FILE, "r") as f:
+#             return json.load(f)
+#     return {}
+
 # Example of using the functions
 if __name__ == "__main__":
     # Load known faces from the database
