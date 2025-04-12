@@ -1,6 +1,4 @@
 from ultralytics import YOLO
-import cv2
-import numpy as np
 from tts_utils import speak
 
 model = YOLO("yolov5n.pt")  # Or yolov8n.pt
